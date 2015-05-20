@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Kalendar</string>
+
+    <string name="kalendar">Kalendar!</string>
+    <string name="action_settings">Settings</string>
+    <string name="today">Hoje</string>
+</resources>
