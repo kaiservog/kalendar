@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 import java.util.Locale;
 
+import kalendar.com.kalendar.map.PlaceHolderMap;
+
 /**
  * Created by César on 12/05/2015.
  */
@@ -19,12 +21,15 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
+        if(position == 0) {
+            return new PlaceHolderMap();
+        }
         return new PlaceHolderFragment();
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 
 

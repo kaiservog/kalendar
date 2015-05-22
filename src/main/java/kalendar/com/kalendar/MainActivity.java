@@ -5,16 +5,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
-import android.widget.Toast;
-
+import android.util.Log;
 import java.util.Calendar;
-import java.util.Date;
-
 
 public class MainActivity extends ActionBarActivity  {
 
@@ -47,13 +39,16 @@ public class MainActivity extends ActionBarActivity  {
                     @Override
                     public void onPageSelected(int position) {
                         getSupportActionBar().setSelectedNavigationItem(position);
+                        Log.d("tab", "trocado para " + position);
                     }
                 });
 
-        for (Integer i = 0; i < 3; i++) {
+        for (Integer i = 0; i < 4; i++) {
             String tabName = "";
             Calendar now = Calendar.getInstance();
             if(i.equals(0)){
+                tabName = "Agora";
+            }else if(i.equals(1)){
                 tabName = new String("Hoje");
             } else {
                 now.add(Calendar.DAY_OF_MONTH, i);
@@ -65,5 +60,8 @@ public class MainActivity extends ActionBarActivity  {
                             .setText(tabName)
                             .setTabListener(tabListener));
         }
+        getSupportActionBar().setSelectedNavigationItem(1);
+        mViewPager.setCurrentItem(1);
+        Log.d("tab", "forçando tab 1!!");
     }
 }
