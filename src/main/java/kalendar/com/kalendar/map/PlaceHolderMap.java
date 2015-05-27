@@ -25,11 +25,15 @@ import kalendar.com.kalendar.R;
 public class PlaceHolderMap extends Fragment implements OnMapReadyCallback {
 
     private GoogleMapOptions options;
+    private View mapView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View mapView = inflater.inflate(R.layout.activity_map, container, false);
+        if(mapView != null) return mapView;
+
+        Log.d("kaiservog", "passou pelo map holder");
+        mapView = inflater.inflate(R.layout.activity_map, container, false);
 
         SupportMapFragment mapFragment = ((SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map));
         mapFragment.getMapAsync(this);
@@ -43,7 +47,7 @@ public class PlaceHolderMap extends Fragment implements OnMapReadyCallback {
                 .position(new LatLng(-23.568341, -46.649488))
                 .title("Marker"));
 
-        CameraPosition conf = CameraPosition.builder().target(new LatLng(-23.568341, -46.649488)).zoom(10).build();
+        CameraPosition conf = CameraPosition.builder().target(new LatLng(-23.568341, -46.649488)).zoom(20).build();
                 
         map.animateCamera(CameraUpdateFactory.newCameraPosition(conf));
     }

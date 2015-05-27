@@ -38,8 +38,8 @@ public class MainActivity extends ActionBarActivity  {
                 new ViewPager.SimpleOnPageChangeListener() {
                     @Override
                     public void onPageSelected(int position) {
-                        getSupportActionBar().setSelectedNavigationItem(position);
                         Log.d("tab", "trocado para " + position);
+                        getSupportActionBar().setSelectedNavigationItem(position);
                     }
                 });
 

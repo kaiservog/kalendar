@@ -3,6 +3,7 @@ package kalendar.com.kalendar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,14 +18,17 @@ import kalendar.com.kalendar.detail.DetailActivity;
  */
 public class PlaceHolderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
-
+    private View rootView;
     public PlaceHolderFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        View rootView = inflater.inflate(R.layout.frag_main, container, false);
+        if(rootView != null) return rootView;
+
+        Log.d("kaiservog", "passou pelo grid holder");
+        rootView = inflater.inflate(R.layout.frag_main, container, false);
 
         GridView gridView = (GridView) rootView.findViewById(R.id.gridview);
         gridView.setAdapter(new ImageAdapter(MainActivity.ma));
